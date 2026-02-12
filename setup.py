@@ -13,7 +13,7 @@ setup(
     description='CLI tool to export Confluence pages to Markdown files',
     author='Confluence.md Contributors',
     author_email='',
-    url='https://github.com/barna-emarsys/Confluence.md',
+    url='https://github.com/bzoboki/Confluence.md',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=requirements,
