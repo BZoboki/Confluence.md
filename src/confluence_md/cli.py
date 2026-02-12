@@ -1,4 +1,4 @@
-"""Click-based CLI for Confluence to Markdown scraper."""
+"""Click-based CLI for Confluence.md."""
 import os
 import sys
 import logging

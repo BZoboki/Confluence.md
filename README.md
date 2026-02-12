@@ -1,4 +1,4 @@
-# Confluence to Markdown Scraper
+# Confluence.md
 
 A lightweight CLI tool to recursively export Confluence pages to Markdown files with YAML frontmatter. Designed to extract content for documentation processing and analysis workflows.
 
@@ -75,17 +75,17 @@ CONFLUENCE_TOKEN=your_personal_access_token
 
 ```bash
 # Confluence Cloud (with username)
-confluence-scraper --page-id 123456 --output-path ./output
+confluence-md --page-id 123456 --output-path ./output
 
 # Confluence Server (without username, PAT only)
-confluence-scraper --page-id 123456 --output-path ./output
+confluence-md --page-id 123456 --output-path ./output
 ```
 
 ### With Explicit Credentials
 
 ```bash
 # Confluence Cloud
-confluence-scraper \
+confluence-md \
   --page-id 123456 \
   --output-path ./output \
   --url https://your-domain.atlassian.net/wiki \
@@ -93,7 +93,7 @@ confluence-scraper \
   --token abc123def456
 
 # Confluence Server/Data Center (omit --user for PAT Bearer auth)
-confluence-scraper \
+confluence-md \
   --page-id 123456 \
   --output-path ./output \
   --url https://confluence.your-company.com \
@@ -103,7 +103,7 @@ confluence-scraper \
 ### With Verbose Logging and Rate Limiting
 
 ```bash
-confluence-scraper \
+confluence-md \
   --page-id 123456 \
   --output-path ./output \
   --delay-ms 500 \
@@ -113,7 +113,7 @@ confluence-scraper \
 ### Resume Existing Export
 
 ```bash
-confluence-scraper \
+confluence-md \
   --page-id 123456 \
   --output-path ./output \
   --skip-existing
@@ -122,8 +122,8 @@ confluence-scraper \
 ### With Custom Timeout and Recursion Limit
 
 ```bash
-confluence-scraper \/email (Cloud only, omit for Server) | Cloud: Yes, Server: No |
-| `CONFLUENCE_TOKEN` | API token (Cloud) or Personal Access Token (Server)
+confluence-md \
+  --page-id 123456 \
   --output-path ./output \
   --timeout 60 \
   --max-depth 100
@@ -266,7 +266,7 @@ Test authentication and basic export:
 
 ```bash
 # Test with verbose logging
-confluence-scraper --page-id YOUR_PAGE_ID --output-path ./test-output --verbose
+confluence-md --page-id YOUR_PAGE_ID --output-path ./test-output --verbose
 
 # Verify output files
 ls -R ./test-output
@@ -275,9 +275,9 @@ ls -R ./test-output
 ### Project Structure
 
 ```
-confluence-scraper/
+Confluence.md/
 ├── src/
-│   └── confluence_scraper/
+│   └── confluence_md/
 │       ├── __init__.py
 │       ├── cli.py          # Click-based CLI
 │       ├── client.py       # Confluence API wrapper

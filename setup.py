@@ -1,4 +1,4 @@
-"""Setup configuration for Confluence to Markdown scraper."""
+"""Setup configuration for Confluence.md - Confluence to Markdown exporter."""
 from setuptools import setup, find_packages
 from pathlib import Path
 
@@ -8,18 +8,18 @@ with open(requirements_path, 'r', encoding='utf-8') as f:
     requirements = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
 setup(
-    name='confluence-scraper',
+    name='confluence-md',
     version='0.1.0',
     description='CLI tool to export Confluence pages to Markdown files',
-    author='Confluence Scraper Contributors',
+    author='Confluence.md Contributors',
     author_email='',
-    url='https://github.com/confluence-scraper/confluence-scraper',
+    url='https://github.com/barna-emarsys/Confluence.md',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'confluence-scraper=confluence_scraper.cli:main',
+            'confluence-md=confluence_md.cli:main',
         ],
     },
     python_requires='>=3.8',
