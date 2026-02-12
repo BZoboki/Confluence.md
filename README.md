@@ -54,7 +54,7 @@ The clean Markdown format with YAML frontmatter makes it easy to ingest into AI 
 
 The tool supports both **Confluence Cloud** and **Confluence Server/Data Center**:
 
-#### Confluence Cloud
+#### Confluence Cloud - **NOT TESTED YET**
 Generate an API token from your Atlassian account:
 - URL: https://id.atlassian.com/manage-profile/security/api-tokens
 - Required: URL + username (email) + API token
