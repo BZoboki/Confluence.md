@@ -9,7 +9,7 @@ __pycache__/
 dist/
 build/
 _bmad/
-.github/
+.github/agents/
 .idea/
 docs/
 output/
