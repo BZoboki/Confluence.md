@@ -26,7 +26,7 @@ const GITHUB_RELEASE_URL = `https://github.com/bzoboki/Confluence.md/releases/do
 // Binary naming convention
 const PLATFORM_MAP = {
   darwin: {
-    x64: "confluence-md-macos-arm64",  // x64 uses arm64 binary (Rosetta 2)
+    x64: "confluence-md-macos-arm64", // x64 uses arm64 binary (Rosetta 2)
     arm64: "confluence-md-macos-arm64",
   },
   linux: { x64: "confluence-md-linux-x64" },
