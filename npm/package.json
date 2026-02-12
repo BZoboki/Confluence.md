@@ -12,7 +12,13 @@
     "type": "git",
     "url": "https://github.com/bzoboki/Confluence.md"
   },
-  "keywords": ["confluence", "markdown", "export", "cli", "atlassian"],
+  "keywords": [
+    "confluence",
+    "markdown",
+    "export",
+    "cli",
+    "atlassian"
+  ],
   "author": "Confluence.md Contributors",
   "license": "MIT",
   "bugs": {
@@ -22,6 +28,13 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "os": ["darwin", "linux", "win32"],
-  "cpu": ["x64", "arm64"]
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
 }

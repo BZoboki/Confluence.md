@@ -19,9 +19,6 @@ jobs:
           - os: windows-latest
             artifact_name: confluence-md.exe
             asset_name: confluence-md-win-x64.exe
-          - os: macos-13
-            artifact_name: confluence-md
-            asset_name: confluence-md-macos-x64
           - os: macos-latest
             artifact_name: confluence-md
             asset_name: confluence-md-macos-arm64
