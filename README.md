@@ -1,4 +1,18 @@
-# Confluence.md
+<div align="center">
+
+# 📄 Confluence.md
+
+**A lightweight CLI tool to recursively export Confluence pages to Markdown files**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![GitHub stars](https://img.shields.io/github/stars/bzoboki/Confluence.md.svg?style=social)](https://github.com/bzoboki/Confluence.md/stargazers)
+
+<a href="https://buymeacoffee.com/jatson" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50"></a>
+
+</div>
+
+---
 
 A lightweight CLI tool to recursively export Confluence pages to Markdown files with YAML frontmatter. Designed to extract content for documentation processing and analysis workflows.
 
