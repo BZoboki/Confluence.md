@@ -20,6 +20,18 @@ A lightweight CLI tool to recursively export Confluence pages to Markdown files 
 
 This tool connects to Confluence Cloud/Server, fetches a page and all its descendants, converts HTML content to Markdown, and saves each page as a `.md` file with preserved metadata. The output structure mirrors the Confluence page hierarchy, making it ideal for feeding into documentation analysis tools.
 
+## AI Agent Integration
+
+The exported Markdown files are designed to be used as context for AI agents and LLMs (Large Language Models) to support various development activities:
+
+- **Documentation Analysis**: Feed technical specifications, RFCs, and design documents to AI coding assistants for implementation guidance
+- **Code Generation**: Use architectural decisions and API documentation as context for generating code that aligns with existing systems
+- **Knowledge Retrieval**: Enable AI agents to answer questions about your team's processes, standards, and technical decisions
+- **Automated Testing**: Provide test case documentation and requirements for AI-assisted test generation
+- **Code Review**: Supply coding standards and best practices documentation to AI tools for automated code review
+
+The clean Markdown format with YAML frontmatter makes it easy to ingest into AI workflows, vector databases, or RAG (Retrieval-Augmented Generation) systems.
+
 ## Installation
 
 1. **Create a virtual environment:**
