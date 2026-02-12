@@ -34,6 +34,22 @@ The clean Markdown format with YAML frontmatter makes it easy to ingest into AI 
 
 ## Installation
 
+### Quick Install (npm) — No Python Required
+
+```bash
+# Install globally
+npm install -g confluence-md
+
+# Or run directly with npx
+npx confluence-md --help
+```
+
+The npm package automatically downloads the correct binary for your platform (Windows, macOS, Linux).
+
+### Python Installation
+
+If you prefer to install from source or need to customize the tool:
+
 1. **Create a virtual environment:**
    ```bash
    python -m venv venv

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# POSIX-compliant shell stub for confluence-md
+basedir=$(cd "$(dirname "$0")" && pwd)
+exec "$basedir/confluence-md-binary" "$@"

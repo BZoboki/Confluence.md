@@ -5,11 +5,14 @@ import logging
 from pathlib import Path
 import click
 from dotenv import load_dotenv
+from . import __version__
 from .client import ConfluenceClient, ConfluenceAuthError, ConfluenceNotFoundError, ConfluenceConnectionError
 from .exporter import PageExporter
+from .update_checker import UpdateChecker, format_update_message
 
 
 @click.command()
+@click.version_option(version=__version__, prog_name='confluence-md')
 @click.option('--page-id', required=True, help='Confluence page ID to export')
 @click.option('--output-path', required=True, type=click.Path(), help='Output directory path')
 @click.option('--url', help='Confluence base URL (or set CONFLUENCE_URL env var)')
@@ -20,10 +23,16 @@ from .exporter import PageExporter
 @click.option('--skip-existing', is_flag=True, help='Skip files that already exist (resume capability)')
 @click.option('--max-depth', default=50, type=int, help='Maximum recursion depth (default: 50)')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging')
-def main(page_id, output_path, url, user, token, delay_ms, timeout, skip_existing, max_depth, verbose):
+@click.option('--no-update-check', is_flag=True, help='Disable update check')
+def main(page_id, output_path, url, user, token, delay_ms, timeout, skip_existing, max_depth, verbose, no_update_check):
     """Export Confluence pages to Markdown files recursively."""
-    
-    # Load environment variables from .env file
+        # Start background update check (non-blocking)
+    update_checker = None
+    should_check_updates = not no_update_check and not os.environ.get("CONFLUENCE_MD_NO_UPDATE_CHECK", "").lower() in ("1", "true", "yes")
+    if should_check_updates:
+        update_checker = UpdateChecker(__version__)
+        update_checker.start()
+        # Load environment variables from .env file
     load_dotenv()
     
     # Setup logging
@@ -83,15 +92,24 @@ def main(page_id, output_path, url, user, token, delay_ms, timeout, skip_existin
     success_count, failure_count = exporter.export_tree(page_id, Path(output_path))
     
     # Report results and exit with appropriate code
+    exit_code = 0
     if failure_count == 0:
         click.echo(f"✓ All pages exported successfully ({success_count} pages)")
-        sys.exit(0)
+        exit_code = 0
     elif success_count > 0:
         click.echo(f"⚠ Partial success: {success_count} succeeded, {failure_count} failed", err=True)
-        sys.exit(1)
+        exit_code = 1
     else:
         click.echo("✗ Export failed", err=True)
-        sys.exit(1)
+        exit_code = 1
+    
+    # Check for updates (print after main output)
+    if update_checker:
+        latest = update_checker.get_result(timeout=0.5)
+        if latest:
+            click.echo(format_update_message(latest))
+    
+    sys.exit(exit_code)
 
 
 if __name__ == '__main__':

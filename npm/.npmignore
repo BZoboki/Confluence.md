@@ -1,0 +1,7 @@
+# Exclude everything except what's needed
+*
+!package.json
+!install.js
+!bin/
+!README.md
+!LICENSE
